@@ -12,7 +12,7 @@
             <h1>{{ post.title }}</h1>
             <p style="text-transform: lowercase;">{{ post.date|date:"d F Y H:i"}}</p>
             <p class="lead">{{ post.body }}</p>
-            <a href="" class="btn btn-lg btn-primary" role="button">Детальніше</a>
+            <a href="/posts/postread/{{post.slug}}" class="btn btn-lg btn-primary" role="button">Детальніше</a>
         </div>
         {% endfor %}
     </div>
