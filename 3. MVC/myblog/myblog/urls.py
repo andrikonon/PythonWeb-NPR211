@@ -1,5 +1,5 @@
 """
-URL configuration for libraryapp project.
+URL configuration for myblog project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -16,8 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('book.urls'))
+    path('', views.homepage, name='index'),
+    path('contact/', views.contact, name='contact'),
+    path('posts/', include('posts.urls')),
+    path('robots.txt', views.RobotsTxtView.as_view(content_type='text/plain'), name='robots')
 ]

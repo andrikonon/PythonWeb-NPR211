@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Новини
+{% endblock title %}
+
+{% block content %}
+    <h1 class="text-center">Новини</h1>
+    <div class="container">
+        {% for post in posts %}
+        <div class="bg-body-ertiary p-5 mb-3 rounded">
+            <h1>{{ post.title }}</h1>
+            <p style="text-transform: lowercase;">{{ post.date|date:"d F Y H:i"}}</p>
+            <p class="lead">{{ post.body }}</p>
+            <a href="{% url 'posts:read' slug=post.slug %}" class="btn btn-lg btn-primary" role="button">Детальніше</a>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
